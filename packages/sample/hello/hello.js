@@ -1,10 +1,3 @@
-// function main(args) {
-//     let name = args.name || 'stranger'
-//     let greeting = 'Hello ' + name + '!'
-//     console.log(greeting)
-//     return {"body": greeting}
-//   }
-
 const nodemailer = require("nodemailer")
 
 async function main(args) {
@@ -18,7 +11,7 @@ async function main(args) {
   try {
     await transporter.sendMail({
       from: "Test account",
-      to: "yared_delatorre@hotmail.com",
+      to: "proyecto10campo@gmail.com",
       subject: "Cotización de evento",
       text: `Se hizo una cotización de evento con los siguientes datos: 
       Nombre: ${args.nombre}
@@ -31,9 +24,9 @@ async function main(args) {
       Hora Y Fecha: ${args.hora_fecha}
       `
     })
-    return { message: "Se ha mandado el correo con exito" }
+    return { "body": "Se ha mandado el correo con exito" }
   } catch(err) {
-    return { error: "Hubo un error" }
+    return { "body": `Hubo un error: ${err}` }
   }
 }
 
