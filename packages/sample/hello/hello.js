@@ -8,10 +8,6 @@
 const nodemailer = require("nodemailer")
 
 async function main(args) {
-  let nombre = args.nombre
-  let correo = args.correo
-  let whatsapp = args.whatsapp
-
   let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -25,9 +21,9 @@ async function main(args) {
       to: "yared_delatorre@hotmail.com",
       subject: "Cotización de evento",
       text: `Se hizo una cotización de evento con los siguientes datos: 
-      Nombre: ${nombre}
-      Correo: ${correo}
-      Whatsapp: ${whatsapp}
+      Nombre: ${args.nombre}
+      Correo: ${args.correo}
+      Whatsapp: ${args.whatsapp}
       Tipo de Evento: ${args.evento}
       Número de Personas: ${args.personas}
       Selección de Menu: ${args.menu}
