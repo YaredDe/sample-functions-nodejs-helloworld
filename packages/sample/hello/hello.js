@@ -23,10 +23,17 @@ async function main(args) {
       to: "yared_delatorre@hotmail.com",
       subject: "Cotización de evento",
       text: `Se hizo una cotización de evento con los siguientes datos: 
-        Nombre: ${args.nombre}
+      Nombre: ${args.nombre}
+      Correo: ${args.correo}
+      Whatsapp: ${args.whatsapp}
+      Tipo de Evento: ${args.evento}
+      Número de Personas: ${args.personas}
+      Selección de Menu: ${args.menu}
+      Lugar: ${args.lugar}
+      Hora Y Fecha: ${args.hora_fecha}
       `
     })
-    res.status(200).json(req.body)
+    res.status(200).json({ message: "Se ha mandado el correo con exito" })
   } catch(err) {
     res.status(500).json({ error: "Hubo un error" })
   }
